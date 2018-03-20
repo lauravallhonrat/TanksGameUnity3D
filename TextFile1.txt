@@ -1,0 +1,4 @@
+Task:
+
+1- cambiar aparencia tank player
+2- arreglar sonidos

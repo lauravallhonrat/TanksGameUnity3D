@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TanksGame.Plugins", "TanksGame.Plugins.csproj", "{5119D301-6DC1-A196-759B-4623A8F8975A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TanksGame", "TanksGame.csproj", "{0B25E22C-DB0A-B415-DA0F-EDE3E3807D7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TanksGame.Editor.Plugins", "TanksGame.Editor.Plugins.csproj", "{1F9F24AC-7CC0-4B08-106A-B46C7D882CC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{42C4607D-DC08-4E3D-9685-BEA669E5AAC2}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5119D301-6DC1-A196-759B-4623A8F8975A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5119D301-6DC1-A196-759B-4623A8F8975A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5119D301-6DC1-A196-759B-4623A8F8975A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5119D301-6DC1-A196-759B-4623A8F8975A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B25E22C-DB0A-B415-DA0F-EDE3E3807D7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B25E22C-DB0A-B415-DA0F-EDE3E3807D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B25E22C-DB0A-B415-DA0F-EDE3E3807D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B25E22C-DB0A-B415-DA0F-EDE3E3807D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F9F24AC-7CC0-4B08-106A-B46C7D882CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F9F24AC-7CC0-4B08-106A-B46C7D882CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F9F24AC-7CC0-4B08-106A-B46C7D882CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F9F24AC-7CC0-4B08-106A-B46C7D882CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EEDDA83-4BE8-4A8D-8A91-9AAE4BE963B6}
+	EndGlobalSection
+EndGlobal
