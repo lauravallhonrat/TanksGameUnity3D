@@ -41,19 +41,25 @@ public class Health : MonoBehaviour {
         if (currentHealth < maxHealth && smokeEffect != null)
         {
             Instantiate(smokeEffect,transform.position, transform.rotation,transform);
+            smokeEffect = null;
         }
 
         //Fuego
         if (currentHealth < maxHealth/2 && fireEffect != null)
         {
-            Instantiate(fireEffect, transform.position, transform.rotation, transform);
+            if (name.Contains("Pro"))
+                Instantiate(fireEffect, transform.position + new Vector3(0, 2, 0), transform.rotation, transform);
+            else
+                Instantiate(fireEffect, transform.position + new Vector3(0,1,0), transform.rotation, transform);
+            fireEffect = null;
         }
 
         //Actualizamos la barra de vida del Player
         if (gameObject.tag == "TankPlayer")
         {
-            float life = currentHealth / maxHealth;
-            GameController.instance.uiController.UpdateLifeBar(life);
+            //siempre habrá valores entre 0 y 1
+            float fillAmountLifeBar = currentHealth / maxHealth;
+            GameController.instance.uiController.UpdateLifeBar(fillAmountLifeBar);
         }
     }
 

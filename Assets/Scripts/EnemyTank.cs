@@ -6,7 +6,7 @@ public class EnemyTank : MonoBehaviour {
 
     Health health;
 
-    Transform targetEnemytank;
+    Transform targetPlayerTank;
 
     [SerializeField]
     float tankSpeed = 5;
@@ -16,7 +16,7 @@ public class EnemyTank : MonoBehaviour {
 
     void Awake () {
         GameController.SetRandomPosition(transform);
-        targetEnemytank = GameObject.FindGameObjectWithTag("TankPlayer").transform;
+        targetPlayerTank = GameObject.FindGameObjectWithTag("TankPlayer").transform;
         health = gameObject.GetComponent<Health>();
     }
 	
@@ -34,11 +34,17 @@ public class EnemyTank : MonoBehaviour {
     void EnemyTankMovement()
     {
         //movimiento tanque enemigo hacia el player
-        if (targetEnemytank != null)
+        if (targetPlayerTank != null)
         {
+            //bloquear la posición Y del gameObject 
+            Vector3 setPosition = new Vector3(transform.position.x, 0.5f, transform.position.z);
+            transform.position = setPosition;
+
+            //miramos hacia el player y avanzamos
             float speedToTarget = tankSpeed * Time.deltaTime;
-            transform.LookAt(targetEnemytank.position);
-            transform.position = Vector3.MoveTowards(transform.position, targetEnemytank.position, speedToTarget);//TODO: cambiar a movimiento hacia Z normal.
+            transform.LookAt(targetPlayerTank.position);
+            transform.Translate(0, 0, speedToTarget);
+           // transform.position = Vector3.MoveTowards(transform.position, targetEnemytank.position, speedToTarget);//TODO: cambiar a movimiento hacia Z normal.
         }
     }
 }

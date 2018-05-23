@@ -38,9 +38,13 @@ public class CameraView : MonoBehaviour {
             {
                 if (previousMaterial == null)
                 {
+                    //Si el objeto tiene componente Renderer le aplicamos la transparencia. Si no no hacemos nada
                     obstacleRenderer = hit.transform.GetComponent<Renderer>();
-                    previousMaterial = obstacleRenderer.material; //Guardamos el material para poder reestablecerlo despues
-                    obstacleRenderer.material = alphaColor;//Asignamos el material transparente 
+                    if (obstacleRenderer != null)
+                    {
+                        previousMaterial = obstacleRenderer.material; //Guardamos el material para poder reestablecerlo despues
+                        obstacleRenderer.material = alphaColor;//Asignamos el material transparente 
+                    }
                 }
 
             }

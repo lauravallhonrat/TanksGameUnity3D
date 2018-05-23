@@ -8,10 +8,7 @@ public class TankController : MonoBehaviour {
     Transform headTank;
 
     //[SerializeField]
-    //Transform canonTank;
-
-    //Punto inicial de la partida del tanque
-    Vector3 defaultPosition = new Vector3(0, 0.5f, 0);
+    //Transform canonTank; 
 
     [Header("Tank settings")]
     [SerializeField]
@@ -28,7 +25,7 @@ public class TankController : MonoBehaviour {
 
 
     void Start () {
-        transform.position = defaultPosition;
+     
 
         //FX
         GameController.instance.audioController.PlaySound(Sounds.tankEngineStopSound);

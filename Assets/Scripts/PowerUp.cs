@@ -55,7 +55,7 @@ public class PowerUp : MonoBehaviour {
                 health.currentHealth = health.currentHealth + value;
 
                 //Refresh Lifebar
-                GameController.instance.uiController.UpdateLifeBar(health.currentHealth);
+                GameController.instance.uiController.UpdateLifeBar(health.currentHealth / health.maxHealth);
 
                 //Play FX!
                 GameController.instance.audioController.PlaySound(Sounds.healthUpSound);
