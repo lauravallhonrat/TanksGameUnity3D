@@ -18,11 +18,6 @@ public class LevelController : MonoBehaviour {
     [SerializeField]
     int currentLevel = 1;
 
-    [SerializeField]
-    int endOfGame = 10;
-
-
-
     void Start () {
         
     }
@@ -34,8 +29,6 @@ public class LevelController : MonoBehaviour {
     //control de nivel y spawneo
      public void SpawnEnemies()
     {
-        if (currentLevel < endOfGame)
-        {
             enemySpawner.Spawn(enemyPrefabs[0], currentLevel);
             if (currentLevel % 2 == 0)
             {
@@ -45,7 +38,6 @@ public class LevelController : MonoBehaviour {
             {
                 enemySpawner.Spawn(enemyPrefabs[2], currentLevel / 5);
             }
-        }
     }
 
     public void VictoryCondition()
@@ -56,11 +48,6 @@ public class LevelController : MonoBehaviour {
             currentLevel++;
             SpawnEnemies();
             GameController.instance.uiController.DialogController("Level " + currentLevel, 3);
-
-            //Fin del juego???
-            if (currentLevel == endOfGame)
-                GameController.instance.EndGame();
-
             //WIN FX
             GameController.instance.audioController.PlaySound(Sounds.winSound);
         }

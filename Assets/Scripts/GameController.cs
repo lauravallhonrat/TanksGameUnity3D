@@ -31,6 +31,8 @@ public class GameController : MonoBehaviour {
     //clase singleton
     public static GameController instance;
 
+    bool isGameEnd;
+
     void Awake()
     {
         //Indicamos que la instancia de GameCOntroller statica, somos nosotros.
@@ -60,10 +62,18 @@ public class GameController : MonoBehaviour {
             uiController.highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore");
            
         }
-
+        Cursor.lockState = CursorLockMode.Locked;
     }
 	
 	void Update () {
+
+
+
+        if (isGameEnd)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Cursor.lockState = CursorLockMode.None;
 
         //condición de victoria
         levelController.VictoryCondition();
@@ -72,25 +82,35 @@ public class GameController : MonoBehaviour {
         {
             EndGame();
         }
-              
+
+        //GOD MODE FOR TESTING - KILL ALL TANKS
+        //if (Input.GetKeyUp(KeyCode.K))
+        //    foreach (EnemyTank et in FindObjectsOfType<EnemyTank>())
+        //        Destroy(et.gameObject);
 	}
 
     //parar juego y posicionar la camara en la raíz de hierarchy
     public void EndGame()
     {
+        //si hay endgame desbloqueamos el ratón
+        Cursor.lockState = CursorLockMode.None;
+
         Time.timeScale = 0;
         maincamera.parent = null;
         uiController.ShowEndPanel();
-
+        isGameEnd = true;
         //Nuevo RECORD
         if (totalScore > PlayerPrefs.GetInt("HighScore"))
         {
             uiController.highScoreText.text = "High Score: " + totalScore;
             PlayerPrefs.SetInt("HighScore", totalScore);
             newRecord.SetActive(true);
+            
         }
-
-
+        //FX
+        GameController.instance.audioController.StopSound(Sounds.environmentSound);
+        GameController.instance.audioController.StopSound(Sounds.tankEngineStopSound);
+        GameController.instance.audioController.PlaySound(Sounds.gameOverSound);
     }
 
     public void ExitGame()

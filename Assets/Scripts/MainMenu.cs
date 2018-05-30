@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour {
     // Use this for initialization
     void Start () {
         audioController.PlaySound(Sounds.mainMenuSound);
+        //desbloqueamos el cursor
+        Cursor.lockState = CursorLockMode.None;
     }
 	
 	// Update is called once per frame

@@ -53,6 +53,8 @@ public class PowerUp : MonoBehaviour {
             {
                 Health health = collision.gameObject.GetComponent<Health>();
                 health.currentHealth = health.currentHealth + value;
+                if (health.currentHealth > health.maxHealth)
+                    health.currentHealth = health.maxHealth;
 
                 //Refresh Lifebar
                 GameController.instance.uiController.UpdateLifeBar(health.currentHealth / health.maxHealth);

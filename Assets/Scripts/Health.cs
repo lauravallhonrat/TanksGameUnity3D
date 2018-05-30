@@ -13,11 +13,17 @@ public class Health : MonoBehaviour {
     [SerializeField]
     GameObject fireEffect;
 
-    [System.NonSerialized]
+    //[System.NonSerialized]
     public float currentHealth;
 
     [System.NonSerialized]
     public bool isDieCalled = false;
+
+    [System.NonSerialized]
+    public bool isFireEffect = false;
+
+    [System.NonSerialized]
+    public bool isSmokeEffect = false;
 
     public float maxHealth;
 
@@ -38,20 +44,36 @@ public class Health : MonoBehaviour {
         }
 
         //instanciar humo/fuego y se sitúa como hijo del objeto actual
-        if (currentHealth < maxHealth && smokeEffect != null)
+
+        //Humo
+        if (currentHealth < maxHealth && !isSmokeEffect)
         {
-            Instantiate(smokeEffect,transform.position, transform.rotation,transform);
-            smokeEffect = null;
+           smokeEffect = Instantiate(smokeEffect, transform.position, transform.rotation, transform) as GameObject;
+            isSmokeEffect = true;
+            smokeEffect.SetActive(true);
+        }
+        if (currentHealth == maxHealth && isSmokeEffect)
+        {
+            isSmokeEffect = false;
+            smokeEffect.SetActive(false);
         }
 
         //Fuego
-        if (currentHealth < maxHealth/2 && fireEffect != null)
+        if (currentHealth < maxHealth / 2 && !isFireEffect)
         {
+
             if (name.Contains("Pro"))
-                Instantiate(fireEffect, transform.position + new Vector3(0, 2, 0), transform.rotation, transform);
+                fireEffect = Instantiate(fireEffect, transform.position + new Vector3(0, 2, 0), transform.rotation, transform) as GameObject;                
             else
-                Instantiate(fireEffect, transform.position + new Vector3(0,1,0), transform.rotation, transform);
-            fireEffect = null;
+                fireEffect = Instantiate(fireEffect, transform.position + new Vector3(0, 1, 0), transform.rotation, transform) as GameObject;
+
+            fireEffect.SetActive(true);
+            isFireEffect = true;
+        }
+        if (currentHealth > maxHealth / 2 && isFireEffect)
+        {
+            isFireEffect = false;
+            fireEffect.SetActive(false);
         }
 
         //Actualizamos la barra de vida del Player
@@ -79,6 +101,6 @@ public class Health : MonoBehaviour {
             enemyDrop.Drop();
         }
 
-        Destroy(gameObject, 0.1f); 
+        Destroy(gameObject, 0.2f); 
     }
 }

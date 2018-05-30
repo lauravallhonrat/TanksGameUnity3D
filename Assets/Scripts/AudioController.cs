@@ -10,7 +10,8 @@ public enum Sounds
     healthUpSound,
     winSound,
     environmentSound,
-    mainMenuSound
+    mainMenuSound,
+    gameOverSound
 }
 
 public class AudioController : MonoBehaviour {
@@ -36,6 +37,9 @@ public class AudioController : MonoBehaviour {
 
     [SerializeField]
     AudioSource mainMenuSound;
+
+    [SerializeField]
+    AudioSource gameOverSound;
 
     void Start () {
 		
@@ -87,13 +91,37 @@ public class AudioController : MonoBehaviour {
             return;
         }
 
-        //MAIN MENU   new
+        //MAIN MENU   
         if (sound == Sounds.mainMenuSound)
         {
             mainMenuSound.Play();
             return;
         }
+        //WIN   
+        if (sound == Sounds.gameOverSound)
+        {
+            gameOverSound.Play();
+            return;
+        }
 
+    }
+
+    public void StopSound(Sounds sound)
+    {
+
+        //ENVIRONMENT
+        if (sound == Sounds.environmentSound)
+        {
+            environmentSound.Stop();
+            return;
+        }
+
+        //TANK MOVEMENT
+        if (sound == Sounds.tankEngineStopSound)
+        {
+            tankEngineStopSound.Stop();
+            return;
+        }
 
     }
 }

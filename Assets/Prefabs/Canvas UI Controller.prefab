@@ -878,7 +878,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 5ecc24dd90cabc44996da79f1881eedb, type: 3}
+    m_Font: {fileID: 12800000, guid: 5ec44550d77284949b06b703253195ae, type: 3}
     m_FontSize: 14
     m_FontStyle: 2
     m_BestFit: 1
@@ -1664,9 +1664,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarPlayer: {fileID: 114838191278842492}
   dialogObject: {fileID: 1767111495673260}
-  mainMenuPanel: {fileID: 0}
   scoreText: {fileID: 114639417475679832}
   endGamePanel: {fileID: 1886016008381614}
+  highScoreText: {fileID: 0}
   cursorVisible: 0
 --- !u!114 &114699694145862774
 MonoBehaviour:
